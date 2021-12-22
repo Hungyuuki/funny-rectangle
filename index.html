@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type="text"]{
+            text-align: right;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+<span>Width   </span><input type="text" id="width" value="200" onchange="solve()" oninput="solve()"> <br>
+<span>Height  </span><input type="text" id="height" value="150" onchange="solve()"> <br>
+<span>Area: </span><span id="area"></span>
+<br>
+<canvas width="1000" height="600" id="canvas"></canvas>
+
+<script src="index.js"></script>
+<script>
+    let canvas = document.getElementById('canvas');
+    let rec = new Rectangle(0,0, canvas);
+    solve();
+
+    function solve(){
+        let width = parseFloat(document.getElementById('width').value);
+        let height = parseFloat(document.getElementById('height').value);
+        let area = width * height;
+        document.getElementById('area').innerText = area;
+        rec.width = width;
+        rec.height = height;
+        rec.draw();
+    }
+</script>
+</body>
+</html>
